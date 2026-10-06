@@ -27,3 +27,13 @@ Por qué la segunda vez que se intentó ejecutar ya existía la instancia de ese
 5. (MP-4, paso 6) Si mañana llega el archivo del 25 y corres otra vez el cierre del 25, ¿será otra instancia u
    otra ejecución de la misma? ¿Por qué lo crees?
 Sera otra ejecución de esta, por el mismo problema que tuvimos al ejecutar 2 veces el cierre del día 28.
+
+## Día 2 · El primer chunk
+
+### Boleto de salida
+
+1. ¿Qué diferencia hay entre un step de tipo Tasklet y uno de tipo chunk?
+2. ¿Qué hace cada una de las tres piezas de un chunk? ¿Cuál es opcional?
+3. Con 45 movimientos y chunks de 10, ¿cuántos commits habría? ¿Y con chunks de 50?
+4. ¿Por qué el Escritor recibe el chunk completo y no un movimiento a la vez?
+5. Mi predicción de la MP-3, paso 1: ¿qué habría pasado sin el Procesador?
