@@ -32,8 +32,17 @@ Sera otra ejecución de esta, por el mismo problema que tuvimos al ejecutar 2 ve
 
 ### Boleto de salida
 
-1. ¿Qué diferencia hay entre un step de tipo Tasklet y uno de tipo chunk?
-2. ¿Qué hace cada una de las tres piezas de un chunk? ¿Cuál es opcional?
-3. Con 45 movimientos y chunks de 10, ¿cuántos commits habría? ¿Y con chunks de 50?
-4. ¿Por qué el Escritor recibe el chunk completo y no un movimiento a la vez?
-5. Mi predicción de la MP-3, paso 1: ¿qué habría pasado sin el Procesador?
+1. ¿Qué diferencia hay entre un step de tipo Tasklet y uno de tipo chunk?<br>
+Tasklet es cuando se tiene una tarea especifica que se tiene que ejecutar 1 o varias veces. <br>
+Chunk para procesar registros, leer procesar y escribir. <br>
+2. ¿Qué hace cada una de las tres piezas de un chunk? ¿Cuál es opcional?<br>
+Lector los datos un renglon a la vez hasta juntar los chunks <br>
+Procesador (Opcional) Limpia los movimientos (procesar/transformar).<br>
+Escritor Guarda los bloques completos de los movimientos (En este caso en MySQL).<br>
+4. Con 45 movimientos y chunks de 10, ¿Cuántos commits habría? ¿Y con chunks de 50? <br>
+45 movimientos con chunks de 10 dará 5 commits 10+10+10+10+5. <br>
+45 movimientos con chunks de 50 dará 1 commit 45.
+5. ¿Por qué el Escritor recibe el chunk completo y no un movimiento a la vez?<br>
+Por que esta batch esta diseñado para procesar datos por bloques (los chunks) y no hacer 1 commit por cada movimiento. 
+6. Mi predicción de la MP-3, paso 1: ¿qué habría pasado sin el Procesador?<br>
+No se haría la transformación de los datos, así como se leen los datos se guardarían en MySQL incluidos los espacios y diferencia entre mayúsculas y minúsculas.
