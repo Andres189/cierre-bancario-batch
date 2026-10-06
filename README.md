@@ -26,7 +26,8 @@ JobExecution: Es cuando se pone en marcha la lógica definida por la instancia d
 Por qué la segunda vez que se intentó ejecutar ya existía la instancia de ese Job con esos parámetros.<br>
 5. (MP-4, paso 6) Si mañana llega el archivo del 25 y corres otra vez el cierre del 25, ¿será otra instancia u
    otra ejecución de la misma? ¿Por qué lo crees?<br>
-Sera otra ejecución de esta, por el mismo problema que tuvimos al ejecutar 2 veces el cierre del día 28.
+Sera otra ejecución de esta, por el mismo problema que tuvimos al ejecutar 2 veces el cierre del día 28.<br>
+
 ## Día 2 · El primer chunk
 
 ### Boleto de salida
