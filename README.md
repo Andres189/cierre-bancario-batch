@@ -51,8 +51,16 @@ No se haría la transformación de los datos, así como se leen los datos se gua
 
 ### Boleto de salida
 
-1. ¿Qué diferencia hay entre una JobInstance y una JobExecution? Usa como ejemplo el cierre del 25.
-2. ¿En qué caso Spring Batch se niega a correr un cierre, y en qué caso lo reinicia?
-3. En el reinicio del día 5, ¿por qué el step de carga leyó 10 movimientos y no 20?
-4. ¿Qué diferencia hay entre un movimiento **filtrado** y uno **omitido**?
-5. ¿Por qué importa el código de salida, si el estado ya queda en las tablas?
+1. ¿Qué diferencia hay entre una JobInstance y una JobExecution? Usa como ejemplo el cierre del 25.<br>
+JobInstance es la ejecución lógica de un job.<br>
+JobExecution es el intento de ejecutar JobInstance y contiene información como el inicio, fin y el resultado.<br>
+2. ¿En qué caso Spring Batch se niega a correr un cierre, y en qué caso lo reinicia? <br>
+Se niega cuando el cierre ya se ejecuto correctamente y se intenta ejecutar el mismo jobInstance. <br>
+Se puede reiniciar cuando ocurrió algún error en la ejecución del jobInstance. <br>
+3. En el reinicio del día 5, ¿por qué el step de carga leyó 10 movimientos y no 20? <br>
+Spring batch anoto hasta donde había llegado y siguio desde donde se quedo. <br>
+4. ¿Qué diferencia hay entre un movimiento **filtrado** y uno **omitido**? <br>
+Los movimientos filtrados no se escriben pero no significa que sean un error. <br>
+los omitidos son como excepciones y podemos saltar estos movimientos. <br>
+5. ¿Por qué importa el código de salida, si el estado ya queda en las tablas? <br>
+El código de salida importa porque spring batch puede registrar un Job como failed pero si el proceso termina con un código de salida 0, Se puede interpretar como exitoso.
