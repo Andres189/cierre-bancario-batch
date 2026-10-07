@@ -45,4 +45,14 @@ Escritor Guarda los bloques completos de los movimientos (En este caso en MySQL)
 5. ¿Por qué el Escritor recibe el chunk completo y no un movimiento a la vez?<br>
 Por que esta batch esta diseñado para procesar datos por bloques (los chunks) y no hacer 1 commit por cada movimiento. 
 6. Mi predicción de la MP-3, paso 1: ¿qué habría pasado sin el Procesador?<br>
-No se haría la transformación de los datos, así como se leen los datos se guardarían en MySQL incluidos los espacios y diferencia entre mayúsculas y minúsculas.
+No se haría la transformación de los datos, así como se leen los datos se guardarían en MySQL incluidos los espacios y diferencia entre mayúsculas y minúsculas.<br>
+
+## Día 3 · Parámetros, fallas y reinicio
+
+### Boleto de salida
+
+1. ¿Qué diferencia hay entre una JobInstance y una JobExecution? Usa como ejemplo el cierre del 25.
+2. ¿En qué caso Spring Batch se niega a correr un cierre, y en qué caso lo reinicia?
+3. En el reinicio del día 5, ¿por qué el step de carga leyó 10 movimientos y no 20?
+4. ¿Qué diferencia hay entre un movimiento **filtrado** y uno **omitido**?
+5. ¿Por qué importa el código de salida, si el estado ya queda en las tablas?
