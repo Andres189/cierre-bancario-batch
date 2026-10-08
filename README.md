@@ -63,4 +63,18 @@ Spring batch anoto hasta donde había llegado y siguio desde donde se quedo. <br
 Los movimientos filtrados no se escriben pero no significa que sean un error. <br>
 los omitidos son como excepciones y podemos saltar estos movimientos. <br>
 5. ¿Por qué importa el código de salida, si el estado ya queda en las tablas? <br>
-El código de salida importa porque spring batch puede registrar un Job como failed pero si el proceso termina con un código de salida 0, Se puede interpretar como exitoso.
+El código de salida importa porque spring batch puede registrar un Job como failed pero si el proceso termina con un código de salida 0, Se puede interpretar como exitoso.<br>
+
+## Día 4 · De MySQL a MongoDB
+
+### Boleto de salida
+
+1. ¿Qué hace cada uno de los tres steps de tu Job, y de qué tipo es cada uno?<br>
+2. ¿Por qué el cierre del 9 no duplicó los saldos, y el del 10 (sin `@Id`) sí?<br>
+3. Al reiniciar el cierre del 11, ¿por qué no se cargó otra vez el archivo?<br>
+4. ¿Qué diferencia hay entre `spring-boot-starter-data-mongodb` y «Spring Batch MongoDB» (`batch-data-mongodb`)?<br>
+
+## Lo que aprendí esta semana
+
+(Con tus palabras, en 5 a 10 renglones: qué es un proceso batch, qué piezas tiene un Job y qué hace Spring
+Batch cuando algo falla.)
