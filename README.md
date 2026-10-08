@@ -84,7 +84,7 @@ batch-data-mongodb se usa para el procamiento masivo por lotes. <br>
 ## Lo que aprendí esta semana
 
 (Con tus palabras, en 5 a 10 renglones: qué es un proceso batch, qué piezas tiene un Job y qué hace Spring
-Batch cuando algo falla.)
+Batch cuando algo falla.)<br>
 Un proceso batch es el que ejecuta tareas con muchos datos de golpe sin la intevencion de una persona, son programados para que se ejecutan a cierta hora del día.
 
 Las piezas de un job son los siguientes:
