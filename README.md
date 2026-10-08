@@ -70,11 +70,26 @@ El código de salida importa porque spring batch puede registrar un Job como fai
 ### Boleto de salida
 
 1. ¿Qué hace cada uno de los tres steps de tu Job, y de qué tipo es cada uno?<br>
+El primero tipo tasklet revisa que exista el archivo de movimientos de la fecha que recibió el job.<br>
+El segundo de tipo Chunk Lee, procesa y escribe de 10 en 10.<br>
+El tercero de tipo Chunk consulta en MySQL el saldo de cada cuenta y cuantos movimientos tiene. <br>
 2. ¿Por qué el cierre del 9 no duplicó los saldos, y el del 10 (sin `@Id`) sí?<br>
+Como se menciona en la práctica, MongoItemWriter guarda los documentos por su id, si ya existe lo remplaza, si no, lo crea.<br>
 3. Al reiniciar el cierre del 11, ¿por qué no se cargó otra vez el archivo?<br>
+En spring batch los pasos que terminaron correctamente no se vuelven a ejecutar.<br>
 4. ¿Qué diferencia hay entre `spring-boot-starter-data-mongodb` y «Spring Batch MongoDB» (`batch-data-mongodb`)?<br>
+spring-boot-starter-data-mongodb se usa para desarrollar APIs REST y microservicios.<br>
+batch-data-mongodb se usa para el procamiento masivo por lotes. <br>
 
 ## Lo que aprendí esta semana
 
 (Con tus palabras, en 5 a 10 renglones: qué es un proceso batch, qué piezas tiene un Job y qué hace Spring
 Batch cuando algo falla.)
+Un proceso batch es el que ejecuta tareas con muchos datos de golpe sin la intevencion de una persona, son programados para que se ejecutan a cierta hora del día.
+
+Las piezas de un job son los siguientes:
+1. Steps.- son como las fases de los jobs, pueden tener 1 o barios steps que se ejecutan en cierto orden.
+2. Lector que se encarga de traer los datos, Procesador aplica lógica de negocio y el writer que guarda los datos.
+3. Chunk encargado de procesar los datos en bloques, en lugar de meter millones de datos al mismo tiempo los separa en bloques y los va procesando por bloque.
+
+Spring batch cuando falla primero registra en sus tablas lo que paso, que se bloqueo y con que falló para evitar repetir lo que ya salió bien y hace rollaback solamente del grupo que salió mal.
